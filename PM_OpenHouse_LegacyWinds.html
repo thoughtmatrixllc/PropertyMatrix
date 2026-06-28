@@ -199,6 +199,20 @@ function submitForm() {
   updateLog();
   document.getElementById('form-card').style.display = 'none';
   document.getElementById('success-card').style.display = 'block';
+  fetch('https://formspree.io/f/xpqgprjl', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      property: '942 Legacy Winds Way — Casselberry',
+      name: name||'—',
+      phone: phone||'—',
+      email: email||'—',
+      agent: agent,
+      hear: hear,
+      contact: contact,
+      time: time
+    })
+  }).catch(function(){});
 }
 
 function resetForm() {
